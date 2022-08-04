@@ -1,7 +1,7 @@
 // entry point 
 import express from "express"; 
 import {config} from "dotenv";
-import pool from './db.js'
+import pool from '.server/db.js'
 import path from 'path'
 import {fileURLToPath} from 'url'
 
