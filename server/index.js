@@ -12,7 +12,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 let PORT = process.env.PORT; 
-if(PORT == null || PORT =='') PORT = 3000;
+if(PORT == null || PORT =='') PORT = 8000;
 
 
 
