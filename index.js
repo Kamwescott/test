@@ -16,25 +16,21 @@ if(PORT == null || PORT =='') PORT = 8000;
 
 
 
-const static_path = path.join(__dirname, "public");
-app.use(express.static(static_path));
-app.use(express.urlencoded({ extended: true }));
 
+app.use("/static", express.static(path.resolve(__dirname, "frontend", "static")))
 app.use(express.json())
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "localhost:3000"); // update to match the domain you will make the request from
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
+
 
 //routes
 
-app.get('/', async (req, res)=>{
-    try {
-        res.sendFile('index.html',{root: "client/public"})
-    } catch (err) {
-        console.log(err.message)
-    }
+app.get('/',  async (req, res) =>{
+ try {
+       console.log("homepage loaded")
+   res.sendFile(path.resolve(__dirname, 'frontend', "index.html"))
+ } catch (err) {
+    console.log(err.message)
+    
+ }
 })
 //create todo
 app.post('/todos', async (req, res) =>{
